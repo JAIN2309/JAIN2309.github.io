@@ -953,9 +953,6 @@
         </button>
       </div>
     </div>
-    <form id="contact-form" action="https://formspree.io/f/xbdvgddv" method="POST" style="display:none">
-      <input name="name" /><input name="email" /><input name="subject" /><textarea name="message"></textarea>
-    </form>
     <p class="contact-meta rv" style="margin-top:32px"><a href="mailto:krishjain641@gmail.com">krishjain641@gmail.com</a> &nbsp;·&nbsp; <a href="tel:+918849096412">+91 88490 96412</a> &nbsp;·&nbsp; Ahmedabad, India</p>
     <div class="cta-btns rv" style="margin-top:20px">
       <a class="btn btn-outline" href="https://linkedin.com/in/krishjain-dev" target="_blank" rel="noopener">
@@ -1193,42 +1190,52 @@ function animateCount(el,target,suffix,dur){
     });
 })();
 
-// ── CONTACT FORM ─────────────────────────────────────────────────────
+// ── CONTACT FORM (Web3Forms) ──────────────────────────────────────────
 (function(){
   var nameI=document.getElementById('f-name'),emailI=document.getElementById('f-email'),subI=document.getElementById('f-subject'),msgI=document.getElementById('f-msg'),submitBtn=document.getElementById('form-submit'),status=document.getElementById('form-status');
   if(!submitBtn)return;
+  var SEND_SVG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>';
+  var OK_SVG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
   submitBtn.addEventListener('click',function(e){
     e.preventDefault();
     status.className='';status.textContent='';
     if(!nameI.value.trim()||!emailI.value.trim()||!msgI.value.trim()){
       status.className='err';status.textContent='Please fill in name, email, and message.';return;
     }
-    submitBtn.classList.add('loading');submitBtn.textContent='Sending…';
-    var body=new FormData();
-    body.append('name',nameI.value);body.append('email',emailI.value);
-    body.append('subject',subI.value||'Portfolio enquiry');body.append('message',msgI.value);
-    fetch('https://formspree.io/f/xbdvgddv',{method:'POST',body:body,headers:{Accept:'application/json'}})
-      .then(function(r){return r.json().then(function(d){return{ok:r.ok,d:d};});})
-      .then(function(res){
-        if(res.ok){
-          status.className='ok';status.textContent='✓ Message sent! I\'ll reply within 24 hours.';
-          nameI.value='';emailI.value='';subI.value='';msgI.value='';
-          submitBtn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sent!';
-        }else{
-          var msg=res.d&&res.d.error?res.d.error:'Submission failed.';
-          if(msg.toLowerCase().indexOf('confirm')!==-1||res.d&&res.d.errors&&JSON.stringify(res.d.errors).indexOf('confirm')!==-1){
-            status.className='err';status.textContent='⚠ Form not yet confirmed — check krishjain641@gmail.com for a Formspree confirmation email and click the link.';
-          }else{
-            status.className='err';status.textContent='⚠ '+msg+' — or email krishjain641@gmail.com directly.';
-          }
-          submitBtn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Send Message';
-        }
-      })
-      .catch(function(){
-        status.className='err';status.textContent='Network error — email krishjain641@gmail.com directly.';
-        submitBtn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Send Message';
-      })
-      .finally(function(){submitBtn.classList.remove('loading');});
+    submitBtn.classList.add('loading');submitBtn.innerHTML='Sending…';
+    var payload={
+      access_key:'92e5e1e3-0cd8-4acb-a9e3-897c6a6f716b',
+      name:nameI.value.trim(),
+      email:emailI.value.trim(),
+      subject:subI.value.trim()||'New message from portfolio — '+nameI.value.trim(),
+      message:msgI.value.trim(),
+      from_name:'Krish Jain Portfolio',
+      replyto:emailI.value.trim(),
+      botcheck:''
+    };
+    fetch('https://api.web3forms.com/submit',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify(payload)
+    })
+    .then(function(r){return r.json().then(function(d){return{ok:r.ok,d:d};});})
+    .then(function(res){
+      if(res.ok&&res.d.success){
+        status.className='ok';
+        status.textContent='✓ Message sent! You\'ll receive a confirmation email shortly. I\'ll reply within 24 hours.';
+        nameI.value='';emailI.value='';subI.value='';msgI.value='';
+        submitBtn.innerHTML=OK_SVG+' Sent!';
+      }else{
+        status.className='err';
+        status.textContent='⚠ '+(res.d.message||'Something went wrong')+' — or email krishjain641@gmail.com directly.';
+        submitBtn.innerHTML=SEND_SVG+' Send Message';
+      }
+    })
+    .catch(function(){
+      status.className='err';status.textContent='Network error — email krishjain641@gmail.com directly.';
+      submitBtn.innerHTML=SEND_SVG+' Send Message';
+    })
+    .finally(function(){submitBtn.classList.remove('loading');});
   });
 })();
 </script>
