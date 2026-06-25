@@ -953,7 +953,7 @@
         </button>
       </div>
     </div>
-    <form id="contact-form" action="https://formspree.io/f/xpwdkynk" method="POST" style="display:none">
+    <form id="contact-form" action="https://formspree.io/f/xbdvgddv" method="POST" style="display:none">
       <input name="name" /><input name="email" /><input name="subject" /><textarea name="message"></textarea>
     </form>
     <p class="contact-meta rv" style="margin-top:32px"><a href="mailto:krishjain641@gmail.com">krishjain641@gmail.com</a> &nbsp;·&nbsp; <a href="tel:+918849096412">+91 88490 96412</a> &nbsp;·&nbsp; Ahmedabad, India</p>
@@ -1207,7 +1207,7 @@ function animateCount(el,target,suffix,dur){
     var body=new FormData();
     body.append('name',nameI.value);body.append('email',emailI.value);
     body.append('subject',subI.value||'Portfolio enquiry');body.append('message',msgI.value);
-    fetch('https://formspree.io/f/xpwdkynk',{method:'POST',body:body,headers:{Accept:'application/json'}})
+    fetch('https://formspree.io/f/xbdvgddv',{method:'POST',body:body,headers:{Accept:'application/json'}})
       .then(function(r){return r.json().then(function(d){return{ok:r.ok,d:d};});})
       .then(function(res){
         if(res.ok){
