@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>404 — Page Not Found | Krish Jain</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root{--bg:#080c12;--surf:#111820;--bdr:rgba(42,58,80,.7);--c:#22d3ee;--v:#818cf8;--g:#34d399;--t:#edf2f7;--mt:#94a3b8}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--t);font-family:'Space Grotesk',sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  /* orbs */
+  .orb{position:fixed;border-radius:50%;filter:blur(100px);pointer-events:none}
+  .o1{width:600px;height:600px;background:radial-gradient(circle,rgba(34,211,238,.12),transparent 70%);top:-200px;left:-100px}
+  .o2{width:500px;height:500px;background:radial-gradient(circle,rgba(129,140,248,.1),transparent 70%);bottom:-150px;right:-80px}
+  /* grid bg */
+  .grid-bg{position:fixed;inset:0;background-image:linear-gradient(rgba(34,211,238,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(34,211,238,.04) 1px,transparent 1px);background-size:60px 60px;-webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 30%,transparent 100%);mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 30%,transparent 100%);pointer-events:none}
+  /* content */
+  .wrap{position:relative;z-index:2;text-align:center;padding:40px 24px;max-width:560px}
+  .code-num{font-family:'JetBrains Mono',monospace;font-size:clamp(7rem,20vw,10rem);font-weight:700;line-height:1;background:linear-gradient(135deg,var(--c),var(--v));-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-.05em;position:relative;display:inline-block}
+  .code-num::before{content:"404";position:absolute;inset:0;background:none;color:transparent;text-shadow:0 0 80px rgba(34,211,238,.15);-webkit-text-stroke:1px rgba(34,211,238,.12)}
+  .glitch{animation:glitch 3s infinite}
+  @keyframes glitch{
+    0%,90%,100%{transform:translate(0)}
+    92%{transform:translate(-3px,1px);filter:hue-rotate(20deg)}
+    94%{transform:translate(3px,-1px);filter:hue-rotate(-20deg)}
+    96%{transform:translate(-1px,2px)}
+    98%{transform:translate(1px,-2px)}
+  }
+  .msg{font-size:1.5rem;font-weight:600;color:var(--t);margin-top:24px;margin-bottom:12px}
+  .sub{color:var(--mt);font-size:1rem;line-height:1.7;margin-bottom:40px}
+  .mono{font-family:'JetBrains Mono',monospace;color:var(--c);background:rgba(34,211,238,.08);padding:2px 8px;border-radius:4px;font-size:.9em}
+  /* buttons */
+  .btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:10px;font-weight:600;font-size:.95rem;text-decoration:none;transition:all .25s cubic-bezier(.34,1.56,.64,1);font-family:'Space Grotesk',sans-serif;cursor:pointer;border:none}
+  .btn-p{background:linear-gradient(135deg,var(--c),var(--v));color:#080c12}
+  .btn-p:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 12px 32px rgba(34,211,238,.3)}
+  .btn-s{background:transparent;color:var(--mt);border:1px solid var(--bdr)}
+  .btn-s:hover{color:var(--t);border-color:rgba(34,211,238,.4);transform:translateY(-2px)}
+  /* footer note */
+  .note{margin-top:48px;font-family:'JetBrains Mono',monospace;font-size:.75rem;color:rgba(148,163,184,.3);letter-spacing:.08em}
+  /* fade in */
+  .wrap{animation:fadein .6s ease both}
+  @keyframes fadein{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="orb o1"></div>
+<div class="orb o2"></div>
+<div class="grid-bg"></div>
+<div class="wrap">
+  <div class="code-num glitch">404</div>
+  <div class="msg">Page not found.</div>
+  <p class="sub">The URL <span class="mono" id="bad-url"></span> doesn't exist.<br>It may have moved or never existed.</p>
+  <div class="btns">
+    <a href="/" class="btn btn-p">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Portfolio
+    </a>
+    <a href="/#contact" class="btn btn-s">Contact Me</a>
+  </div>
+  <div class="note">KRISH JAIN · PORTFOLIO · 404</div>
+</div>
+<script>
+  var p=window.location.pathname;
+  document.getElementById('bad-url').textContent=p.length>30?p.slice(0,30)+'…':p;
+</script>
+</body>
+</html>
