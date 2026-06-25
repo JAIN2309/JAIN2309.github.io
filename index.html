@@ -1215,12 +1215,17 @@ function animateCount(el,target,suffix,dur){
           nameI.value='';emailI.value='';subI.value='';msgI.value='';
           submitBtn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sent!';
         }else{
-          status.className='err';status.textContent='Something went wrong. Please email me directly.';
+          var msg=res.d&&res.d.error?res.d.error:'Submission failed.';
+          if(msg.toLowerCase().indexOf('confirm')!==-1||res.d&&res.d.errors&&JSON.stringify(res.d.errors).indexOf('confirm')!==-1){
+            status.className='err';status.textContent='⚠ Form not yet confirmed — check krishjain641@gmail.com for a Formspree confirmation email and click the link.';
+          }else{
+            status.className='err';status.textContent='⚠ '+msg+' — or email krishjain641@gmail.com directly.';
+          }
           submitBtn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Send Message';
         }
       })
       .catch(function(){
-        status.className='err';status.textContent='Network error. Please email krishjain641@gmail.com directly.';
+        status.className='err';status.textContent='Network error — email krishjain641@gmail.com directly.';
         submitBtn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Send Message';
       })
       .finally(function(){submitBtn.classList.remove('loading');});
