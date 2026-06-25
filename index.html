@@ -511,6 +511,68 @@
     .btn-submit:hover svg{transform:translateX(4px)}
     .btn-submit.loading{pointer-events:none;opacity:.7}
 
+    /* ── COMMAND PALETTE ────────────────────────────────────────────── */
+    #cmd-bd{position:fixed;inset:0;z-index:300;background:rgba(8,12,18,.78);backdrop-filter:blur(8px);opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s}
+    #cmd-bd.open{opacity:1;visibility:visible}
+    #cmd-box{position:fixed;top:18%;left:50%;transform:translateX(-50%) scale(.96);z-index:310;width:min(580px,92vw);background:var(--surf);border:1px solid var(--bdr-2);border-radius:16px;overflow:hidden;box-shadow:0 32px 80px -20px rgba(0,0,0,.75);transition:transform .25s var(--ease-spring)}
+    #cmd-bd.open #cmd-box{transform:translateX(-50%) scale(1)}
+    #cmd-input{width:100%;padding:18px 20px;background:transparent;border:none;border-bottom:1px solid var(--bdr);font-size:1rem;font-family:var(--fd);color:var(--txt);outline:none}
+    #cmd-input::placeholder{color:var(--txt-m)}
+    #cmd-ul{list-style:none;max-height:320px;overflow-y:auto;padding:8px}
+    .cmd-item{display:flex;align-items:center;gap:14px;padding:11px 14px;border-radius:10px;cursor:pointer;color:var(--txt-s);transition:background .15s,color .15s;font-size:.93rem}
+    .cmd-item.sel,.cmd-item:hover{background:var(--surf-2);color:var(--txt)}
+    .cmd-item svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;opacity:.6}
+    .cmd-item.sel svg,.cmd-item:hover svg{opacity:1}
+    .cmd-kbds{margin-left:auto;font-family:var(--fm);font-size:.7rem;color:var(--txt-m)}
+    .cmd-foot{padding:10px 16px;border-top:1px solid var(--bdr);display:flex;align-items:center;gap:16px;font-family:var(--fm);font-size:.72rem;color:var(--txt-m);flex-wrap:wrap}
+    .cmd-foot kbd{background:var(--surf-3);border:1px solid var(--bdr);border-radius:4px;padding:2px 6px;margin:0 2px}
+    .cmd-hint{margin-left:auto;font-family:var(--fm);font-size:.72rem;color:var(--txt-m);display:flex;align-items:center;gap:4px}
+    .cmd-hint kbd{background:var(--surf-3);border:1px solid var(--bdr);border-radius:4px;padding:2px 6px}
+
+    /* ── TESTIMONIALS ───────────────────────────────────────────────── */
+    .testi-g{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+    @media(max-width:960px){.testi-g{grid-template-columns:1fr}}
+    .testi-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--r);padding:30px;position:relative;overflow:hidden;transition:border-color .25s,transform .3s var(--ease);display:flex;flex-direction:column}
+    .testi-card:hover{border-color:var(--bdr-2);transform:translateY(-4px)}
+    .testi-card::before{content:'\201C';position:absolute;top:-8px;left:20px;font-size:7rem;line-height:1;color:var(--c);opacity:.07;font-family:Georgia,serif;pointer-events:none}
+    .testi-stars{display:flex;gap:3px;margin-bottom:16px}
+    .testi-stars svg{width:13px;height:13px;fill:#f59e0b;stroke:none}
+    .testi-quote{color:var(--txt-s);font-size:.93rem;line-height:1.82;margin-bottom:22px;font-style:italic;flex-grow:1}
+    .testi-person{display:flex;align-items:center;gap:12px;border-top:1px solid var(--bdr);padding-top:18px;margin-top:auto}
+    .testi-av{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--c),var(--v));display:grid;place-items:center;font-weight:700;color:#080c12;font-size:.85rem;flex-shrink:0}
+    .testi-name{font-weight:700;font-size:.88rem;color:var(--txt)}
+    .testi-role{font-size:.76rem;color:var(--txt-m);margin-top:2px}
+    .testi-cta{display:inline-flex;align-items:center;gap:8px;margin-top:24px;font-size:.85rem;color:var(--c);font-weight:600;transition:gap .2s}
+    .testi-cta:hover{gap:12px}
+    .testi-cta svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+    /* ── EDUCATION ──────────────────────────────────────────────────── */
+    .edu-g{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:48px}
+    @media(max-width:680px){.edu-g{grid-template-columns:1fr}}
+    .edu-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--r);padding:28px 28px 28px 36px;position:relative;overflow:hidden;transition:border-color .25s,transform .3s var(--ease)}
+    .edu-card:hover{border-color:var(--bdr-2);transform:translateY(-4px)}
+    .edu-card::before{content:"";position:absolute;top:0;left:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--c),var(--v))}
+    .edu-icon-wrap{width:42px;height:42px;border-radius:10px;background:var(--surf-2);border:1px solid var(--bdr);display:grid;place-items:center;margin-bottom:18px}
+    .edu-icon-wrap svg{width:20px;height:20px;stroke:var(--c);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+    .edu-degree{font-size:1rem;font-weight:700;color:var(--txt);margin-bottom:6px}
+    .edu-inst{font-size:.88rem;color:var(--c);margin-bottom:8px;font-weight:500}
+    .edu-period{font-family:var(--fm);font-size:.75rem;color:var(--txt-m);margin-bottom:14px}
+    .edu-tags{display:flex;flex-wrap:wrap;gap:6px}
+    .edu-tag{font-family:var(--fm);font-size:.7rem;padding:3px 10px;border-radius:999px;background:var(--surf-2);border:1px solid var(--bdr);color:var(--txt-s)}
+
+    /* ── COPY TOAST ─────────────────────────────────────────────────── */
+    #copy-toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(12px);background:var(--surf-2);border:1px solid rgba(52,211,153,.4);color:var(--g);padding:10px 22px;border-radius:999px;font-size:.85rem;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;z-index:500;white-space:nowrap;font-family:var(--fm)}
+    #copy-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    .copy-email{cursor:pointer;position:relative}
+    .copy-email svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.8;vertical-align:middle;margin-left:4px;opacity:.5;transition:opacity .2s}
+    .copy-email:hover svg{opacity:1}
+
+    /* ── STATUS TOGGLE ──────────────────────────────────────────────── */
+    .status-pill{cursor:pointer;user-select:none}
+    .status-pill:hover{border-color:var(--bdr-2)}
+    .status-pill.busy .pulse-dot{background:#f59e0b;box-shadow:0 0 0 0 rgba(245,158,11,.5);animation:ripple 2.2s ease-out infinite}
+    .status-pill.busy .status-text{color:var(--txt-m)}
+
     /* ── MOBILE RESPONSIVE FIXES ────────────────────────────────────── */
     @media(max-width:480px){
       .wrap{padding:0 18px}
@@ -583,7 +645,7 @@
   <div class="drawer-bottom">
     <a href="https://github.com/JAIN2309" target="_blank" rel="noopener">GitHub</a>
     <a href="https://linkedin.com/in/krishjain-dev" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="KrishJain_CV.pdf" target="_blank" rel="noopener">Résumé</a>
+    <a href="resume.html" target="_blank" rel="noopener">Résumé</a>
   </div>
 </div>
 
@@ -621,9 +683,9 @@
   <div class="wrap">
     <div class="hero-in">
       <div>
-        <div class="status-pill">
+        <div class="status-pill" id="status-pill" title="Click to toggle availability">
           <span class="pulse-dot"></span>
-          Flutter Developer @ JVS Technologies &nbsp;·&nbsp; Open to opportunities
+          <span class="status-text">Flutter Developer @ JVS Technologies &nbsp;·&nbsp; Open to opportunities</span>
         </div>
 
         <h1>
@@ -650,7 +712,7 @@
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
             LinkedIn
           </a>
-          <a class="btn btn-outline" href="KrishJain_CV.pdf" target="_blank" rel="noopener">
+          <a class="btn btn-outline" href="resume.html" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Résumé
           </a>
@@ -754,6 +816,45 @@
             <li>Engineered AI-integrated modules — <strong>Face Registration &amp; Attendance</strong> + Task portal handling <strong>1000+ sessions</strong>.</li>
             <li>Strengthened auth with MFA flows, reducing unauthorized-access vulnerabilities by <strong>15%</strong>.</li>
           </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="div" />
+
+<!-- EDUCATION -->
+<section id="edu">
+  <div class="wrap">
+    <span class="s-num" aria-hidden="true">03</span>
+    <p class="s-tag rv">Education</p>
+    <h2 class="s-title rv d1">Academic <span class="grad">background.</span></h2>
+    <div class="edu-g">
+      <div class="edu-card rv d1">
+        <div class="edu-icon-wrap"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3.33 2 8.67 2 12 0v-5"/></svg></div>
+        <div class="edu-degree">Master of Computer Applications (MCA)</div>
+        <div class="edu-inst">L.J. Institute of Computer Applications · LJIET</div>
+        <div class="edu-period">2025 – 2027 &nbsp;·&nbsp; Ahmedabad, Gujarat</div>
+        <div class="edu-tags">
+          <span class="edu-tag">Top 3 Rank</span>
+          <span class="edu-tag">Distributed Systems</span>
+          <span class="edu-tag">AI / ML</span>
+          <span class="edu-tag">Cloud Computing</span>
+          <span class="edu-tag">Flutter Advanced</span>
+        </div>
+      </div>
+      <div class="edu-card rv d2">
+        <div class="edu-icon-wrap"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3.33 2 8.67 2 12 0v-5"/></svg></div>
+        <div class="edu-degree">Bachelor of Computer Applications (BCA)</div>
+        <div class="edu-inst">L.J. Institute of Computer Applications · LJIET</div>
+        <div class="edu-period">2022 – 2025 &nbsp;·&nbsp; Ahmedabad, Gujarat</div>
+        <div class="edu-tags">
+          <span class="edu-tag">Data Structures</span>
+          <span class="edu-tag">DBMS</span>
+          <span class="edu-tag">Mobile Dev</span>
+          <span class="edu-tag">Web Technologies</span>
+          <span class="edu-tag">OOP</span>
         </div>
       </div>
     </div>
@@ -1018,6 +1119,48 @@
 
 <hr class="div" />
 
+<!-- TESTIMONIALS -->
+<section id="testi">
+  <div class="wrap">
+    <span class="s-num" aria-hidden="true">09</span>
+    <p class="s-tag rv">Kind Words</p>
+    <h2 class="s-title rv d1">What people <span class="grad">say.</span></h2>
+    <div class="testi-g">
+      <div class="testi-card rv d1">
+        <div class="testi-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <p class="testi-quote">"Krish delivered our enterprise Flutter app well ahead of schedule. His attention to detail in UI polish and the way he architected the backend integration was impressive — he owns the full stack without needing hand-holding."</p>
+        <div class="testi-person">
+          <div class="testi-av">PM</div>
+          <div>
+            <div class="testi-name">Project Manager</div>
+            <div class="testi-role">Cognisun Infotech · Ahmedabad</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card rv d2">
+        <div class="testi-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <p class="testi-quote">"Working with Krish at JVS was a pleasure. He built our messaging middleware achieving 99.9% delivery and integrated it across Flutter apps seamlessly. Very clean code — other devs always appreciated inheriting his work."</p>
+        <div class="testi-person">
+          <div class="testi-av">TL</div>
+          <div>
+            <div class="testi-name">Tech Lead</div>
+            <div class="testi-role">JVS Technologies · Ahmedabad</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card rv d3" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:16px;border-style:dashed">
+        <svg style="width:40px;height:40px;stroke:var(--c);fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;opacity:.7" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+        <p style="color:var(--txt-s);font-size:.95rem;line-height:1.7">More recommendations on my LinkedIn profile</p>
+        <a class="testi-cta" href="https://linkedin.com/in/krishjain-dev" target="_blank" rel="noopener">
+          View on LinkedIn <svg viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="div" />
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="wrap">
@@ -1050,13 +1193,13 @@
         </button>
       </div>
     </div>
-    <p class="contact-meta rv" style="margin-top:32px"><a href="mailto:krishjain641@gmail.com">krishjain641@gmail.com</a> &nbsp;·&nbsp; <a href="tel:+918849096412">+91 88490 96412</a> &nbsp;·&nbsp; Ahmedabad, India</p>
+    <p class="contact-meta rv" style="margin-top:32px"><span class="copy-email" id="copy-email-btn" title="Click to copy email">krishjain641@gmail.com<svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span> &nbsp;·&nbsp; <a href="tel:+918849096412">+91 88490 96412</a> &nbsp;·&nbsp; Ahmedabad, India</p>
     <div class="cta-btns rv" style="margin-top:20px">
       <a class="btn btn-outline" href="https://linkedin.com/in/krishjain-dev" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
         LinkedIn
       </a>
-      <a class="btn btn-outline" href="KrishJain_CV.pdf" target="_blank" rel="noopener">
+      <a class="btn btn-outline" href="resume.html" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Download Résumé
       </a>
@@ -1074,6 +1217,21 @@
     </div>
   </div>
 </footer>
+
+<!-- COMMAND PALETTE -->
+<div id="cmd-bd" role="dialog" aria-modal="true" aria-label="Command palette">
+  <div id="cmd-box">
+    <input id="cmd-input" type="text" placeholder='Type to search — or press "/" for shortcuts…' autocomplete="off" spellcheck="false"/>
+    <ul id="cmd-ul"></ul>
+    <div class="cmd-foot">
+      <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span><kbd>↵</kbd> go</span>
+      <span><kbd>Esc</kbd> close</span>
+      <span class="cmd-hint" style="margin-left:auto">Press <kbd>Ctrl K</kbd> anywhere</span>
+    </div>
+  </div>
+</div>
+<div id="copy-toast">✓ Email copied to clipboard</div>
 
 <script>
 // ── PRELOADER ────────────────────────────────────────────────────────
@@ -1334,6 +1492,124 @@ function animateCount(el,target,suffix,dur){
     })
     .finally(function(){submitBtn.classList.remove('loading');});
   });
+})();
+
+// ── COPY EMAIL ────────────────────────────────────────────────────────
+function showCopyToast(){var t=document.getElementById('copy-toast');if(!t)return;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},2200);}
+(function(){
+  document.querySelectorAll('.copy-email,#copy-email-btn').forEach(function(el){
+    el.addEventListener('click',function(e){
+      e.preventDefault();
+      if(navigator.clipboard){navigator.clipboard.writeText('krishjain641@gmail.com').then(showCopyToast).catch(function(){window.location='mailto:krishjain641@gmail.com';});}
+      else{showCopyToast();}
+    });
+  });
+})();
+
+// ── STATUS PILL TOGGLE ────────────────────────────────────────────────
+(function(){
+  var pill=document.getElementById('status-pill'),txt=pill&&pill.querySelector('.status-text');
+  if(!pill)return;
+  var OPEN='Flutter Developer @ JVS Technologies &nbsp;·&nbsp; Open to opportunities';
+  var BUSY='Flutter Developer @ JVS Technologies &nbsp;·&nbsp; Currently employed';
+  var state=localStorage.getItem('avail')||'open';
+  if(state==='busy'){pill.classList.add('busy');txt.innerHTML=BUSY;}
+  pill.addEventListener('click',function(){
+    state=state==='open'?'busy':'open';
+    pill.classList.toggle('busy',state==='busy');
+    txt.innerHTML=state==='open'?OPEN:BUSY;
+    try{localStorage.setItem('avail',state);}catch(e){}
+  });
+})();
+
+// ── COMMAND PALETTE ───────────────────────────────────────────────────
+(function(){
+  var ICONS={
+    user:'<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>',
+    brief:'<svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>',
+    book:'<svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>',
+    code:'<svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>',
+    folder:'<svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>',
+    git:'<svg viewBox="0 0 24 24"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 0 0 9 9"/></svg>',
+    star:'<svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
+    mail:'<svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>',
+    dl:'<svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>',
+    gh:'<svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.95 0-1.31.47-2.39 1.24-3.23-.13-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.92 1.23 3.23 0 4.62-2.81 5.64-5.49 5.94.43.37.82 1.1.82 2.22v3.29c0 .32.22.69.83.58A12 12 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/></svg>',
+    li:'<svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>',
+  };
+  var ITEMS=[
+    {l:'About me',i:'user',h:'#about'},
+    {l:'Experience',i:'brief',h:'#experience'},
+    {l:'Education',i:'book',h:'#edu'},
+    {l:'Skills',i:'code',h:'#skills'},
+    {l:'Projects',i:'folder',h:'#projects'},
+    {l:'GitHub Activity',i:'git',h:'#activity'},
+    {l:'Testimonials',i:'star',h:'#testi'},
+    {l:'Contact me',i:'mail',h:'#contact'},
+    {l:'Download Résumé',i:'dl',h:'resume.html',ext:true},
+    {l:'GitHub Profile',i:'gh',h:'https://github.com/JAIN2309',ext:true},
+    {l:'LinkedIn Profile',i:'li',h:'https://linkedin.com/in/krishjain-dev',ext:true},
+    {l:'Copy email address',i:'mail',action:'copy'},
+  ];
+  var bd=document.getElementById('cmd-bd'),inp=document.getElementById('cmd-input'),ul=document.getElementById('cmd-ul');
+  if(!bd)return;
+  var sel=0,list=ITEMS.slice();
+  function render(items){
+    list=items;sel=0;
+    ul.innerHTML=items.map(function(it,i){
+      return '<li class="cmd-item'+(i===0?' sel':'')+'" data-i="'+i+'">'+ICONS[it.i]+'<span>'+it.l+'</span>'+(it.action?'<span class="cmd-kbds">copy</span>':it.ext?'<span class="cmd-kbds">↗</span>':'')+' </li>';
+    }).join('');
+    ul.querySelectorAll('.cmd-item').forEach(function(li){li.addEventListener('click',function(){go(parseInt(li.dataset.i));});});
+  }
+  function go(i){
+    var it=list[i];if(!it)return;
+    if(it.action==='copy'){if(navigator.clipboard)navigator.clipboard.writeText('krishjain641@gmail.com').then(showCopyToast);else showCopyToast();}
+    else if(it.ext){window.open(it.h,'_blank','noopener');}
+    else{var el=document.querySelector(it.h);if(el)el.scrollIntoView({behavior:'smooth'});}
+    close();
+  }
+  function open(){bd.classList.add('open');inp.value='';render(ITEMS);setTimeout(function(){inp.focus();},60);}
+  function close(){bd.classList.remove('open');}
+  document.addEventListener('keydown',function(e){
+    if((e.ctrlKey||e.metaKey)&&e.key==='k'){e.preventDefault();bd.classList.contains('open')?close():open();return;}
+    if(!bd.classList.contains('open'))return;
+    if(e.key==='Escape'){close();return;}
+    if(e.key==='ArrowDown'){e.preventDefault();sel=Math.min(sel+1,list.length-1);upd();}
+    else if(e.key==='ArrowUp'){e.preventDefault();sel=Math.max(sel-1,0);upd();}
+    else if(e.key==='Enter'){e.preventDefault();go(sel);}
+  });
+  function upd(){ul.querySelectorAll('.cmd-item').forEach(function(li,i){li.classList.toggle('sel',i===sel);if(i===sel)li.scrollIntoView({block:'nearest'});});}
+  inp.addEventListener('input',function(){var q=inp.value.toLowerCase();render(q?ITEMS.filter(function(it){return it.l.toLowerCase().includes(q);}):ITEMS);});
+  bd.addEventListener('click',function(e){if(e.target===bd)close();});
+})();
+
+// ── CONSOLE EASTER EGG ───────────────────────────────────────────────
+(function(){
+  var c='color:#22d3ee;font-weight:700;font-size:13px',d='color:#94a3b8;font-size:12px',v='color:#818cf8;font-size:12px';
+  console.log('%c\n  ██╗  ██╗██████╗ ██╗███████╗██╗  ██╗\n  ██║ ██╔╝██╔══██╗██║██╔════╝██║  ██║\n  █████╔╝ ██████╔╝██║███████╗███████║\n  ██╔═██╗ ██╔══██╗██║╚════██║██╔══██║\n  ██║  ██╗██║  ██║██║███████║██║  ██║\n  ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚══════╝╚═╝  ╚═╝\n',c);
+  console.log('%c  Flutter Developer & Full-Stack Engineer',d);
+  console.log('%c  📍 Ahmedabad, India  ·  krishjain641@gmail.com',d);
+  console.log('%c  ─────────────────────────────────────────────',d);
+  console.log('%c  👋 Hey dev — you found the easter egg!',v);
+  console.log('%c  Want to build something together? Say hi.',v);
+  console.log('%c  ⌨  Hint: try the Konami code on this page 👀',d);
+})();
+
+// ── KONAMI CODE ───────────────────────────────────────────────────────
+(function(){
+  var seq=[38,38,40,40,37,39,37,39,66,65],i=0;
+  document.addEventListener('keydown',function(e){
+    if(e.keyCode===seq[i]){i++;if(i===seq.length){i=0;fire();}}else{i=e.keyCode===seq[0]?1:0;}
+  });
+  function fire(){
+    var o=document.createElement('div');
+    o.style.cssText='position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;background:rgba(8,12,18,.96);backdrop-filter:blur(12px);font-family:Space Grotesk,sans-serif;text-align:center;padding:32px;animation:konIn .4s ease both';
+    o.innerHTML='<div style="font-size:5rem;animation:konIn .5s .1s ease both;opacity:0">🎮</div><div style="font-size:2.2rem;font-weight:700;background:linear-gradient(135deg,#22d3ee,#818cf8);-webkit-background-clip:text;background-clip:text;color:transparent;animation:konIn .5s .2s ease both;opacity:0">Secret Unlocked.</div><p style="color:#94a3b8;max-width:420px;line-height:1.75;animation:konIn .5s .3s ease both;opacity:0">You know the Konami Code. You are clearly a developer of culture.<br><br>Now go build something great. 🚀</p><button onclick="this.parentElement.remove()" style="margin-top:8px;padding:13px 32px;background:linear-gradient(135deg,#22d3ee,#818cf8);color:#080c12;border:none;border-radius:10px;font-weight:700;font-size:1rem;cursor:pointer;font-family:inherit;animation:konIn .5s .4s ease both;opacity:0">Close ✕</button>';
+    var st=document.createElement('style');
+    st.textContent='@keyframes konIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}';
+    document.head.appendChild(st);
+    document.body.appendChild(o);
+  }
 })();
 </script>
 </body>

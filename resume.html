@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Krish Jain — Resume</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',sans-serif;font-size:10.5pt;color:#1a1a2e;background:#fff;line-height:1.5}
+  a{color:#0891b2;text-decoration:none}
+  /* ── PAGE ── */
+  .page{max-width:800px;margin:0 auto;padding:40px 44px}
+  @media print{
+    body{font-size:10pt}
+    .page{padding:18mm 18mm;max-width:none}
+    .no-print{display:none}
+    @page{size:A4;margin:0}
+  }
+  /* ── HEADER ── */
+  .hd{display:flex;justify-content:space-between;align-items:flex-start;padding-bottom:18px;border-bottom:2px solid #0891b2;margin-bottom:20px}
+  .hd-name{font-size:24pt;font-weight:700;color:#0f172a;letter-spacing:-.03em}
+  .hd-title{font-size:11pt;color:#0891b2;font-weight:600;margin-top:4px}
+  .hd-r{text-align:right;font-size:9.5pt;color:#475569;line-height:1.9;font-family:'JetBrains Mono',monospace}
+  .hd-r a{color:#0891b2}
+  /* ── SECTIONS ── */
+  section{margin-bottom:18px}
+  .sec-title{font-size:9pt;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#0891b2;border-bottom:1px solid #e2e8f0;padding-bottom:5px;margin-bottom:12px}
+  /* ── EXPERIENCE ── */
+  .job{margin-bottom:14px}
+  .job-hd{display:flex;justify-content:space-between;align-items:baseline}
+  .job-title{font-weight:700;font-size:10.5pt;color:#0f172a}
+  .job-co{font-size:9.5pt;color:#475569;margin-top:1px}
+  .job-date{font-family:'JetBrains Mono',monospace;font-size:8.5pt;color:#94a3b8;white-space:nowrap;flex-shrink:0;margin-left:12px}
+  .job ul{margin-top:7px;padding-left:14px}
+  .job li{margin-bottom:4px;font-size:10pt;color:#334155}
+  .job li strong{color:#0f172a}
+  /* ── SKILLS ── */
+  .skills-g{display:grid;grid-template-columns:repeat(3,1fr);gap:8px 16px}
+  .skill-row{font-size:9.5pt}
+  .skill-label{font-weight:600;color:#0f172a}
+  .skill-items{color:#475569}
+  /* ── EDU ── */
+  .edu-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+  .edu-deg{font-weight:700;font-size:10.5pt;color:#0f172a}
+  .edu-inst{font-size:9.5pt;color:#475569}
+  .edu-dt{font-family:'JetBrains Mono',monospace;font-size:8.5pt;color:#94a3b8}
+  /* ── PROJECTS ── */
+  .proj{margin-bottom:10px}
+  .proj-hd{display:flex;justify-content:space-between;align-items:baseline}
+  .proj-name{font-weight:700;color:#0f172a;font-size:10.5pt}
+  .proj-stack{font-family:'JetBrains Mono',monospace;font-size:8pt;color:#0891b2}
+  .proj-desc{font-size:9.5pt;color:#475569;margin-top:3px}
+  /* ── PRINT BTN ── */
+  .print-bar{background:#0f172a;color:#e2e8f0;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;font-size:9.5pt;gap:12px}
+  .print-bar a{color:#22d3ee;text-decoration:none}
+  .btn-print{background:#22d3ee;color:#0f172a;border:none;padding:8px 20px;border-radius:6px;font-weight:700;font-size:9.5pt;cursor:pointer;font-family:'Inter',sans-serif}
+  /* ── CHIPS ── */
+  .chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+  .chip{font-family:'JetBrains Mono',monospace;font-size:8pt;padding:2px 8px;border-radius:4px;background:#f1f5f9;border:1px solid #e2e8f0;color:#475569}
+</style>
+</head>
+<body>
+
+<div class="print-bar no-print">
+  <span>Open in Chrome → Ctrl+P → <strong>Save as PDF</strong> → Save as <code>KrishJain_CV.pdf</code> in the portfolio folder</span>
+  <button class="btn-print" onclick="window.print()">Print / Save PDF</button>
+</div>
+
+<div class="page">
+
+  <div class="hd">
+    <div>
+      <div class="hd-name">Krish Jain</div>
+      <div class="hd-title">Flutter Developer & Full-Stack Engineer</div>
+    </div>
+    <div class="hd-r">
+      <a href="mailto:krishjain641@gmail.com">krishjain641@gmail.com</a><br>
+      +91 88490 96412<br>
+      Ahmedabad, Gujarat, India<br>
+      <a href="https://jain2309.github.io">jain2309.github.io</a> &nbsp;·&nbsp; <a href="https://github.com/JAIN2309">github.com/JAIN2309</a><br>
+      <a href="https://linkedin.com/in/krishjain-dev">linkedin.com/in/krishjain-dev</a>
+    </div>
+  </div>
+
+  <section>
+    <div class="sec-title">Summary</div>
+    <p style="color:#334155;font-size:10pt;line-height:1.65">Flutter & full-stack developer with 1.5+ years of production experience building communication-centric mobile apps, enterprise APIs, and CI/CD pipelines. Shipped 5+ apps to Google Play Store at Cognisun Infotech. Currently at JVS Technologies delivering a real-time messaging system with 99.9% delivery reliability. MCA candidate at LJIET (Top 3 rank, 2025–2027).</p>
+  </section>
+
+  <section>
+    <div class="sec-title">Experience</div>
+    <div class="job">
+      <div class="job-hd">
+        <div>
+          <div class="job-title">Flutter Developer</div>
+          <div class="job-co">JVS Technologies · Ahmedabad</div>
+        </div>
+        <div class="job-date">Jun 2025 – Present</div>
+      </div>
+      <ul>
+        <li>Architected real-time messaging middleware with <strong>99.9% delivery reliability</strong> across 10,000+ concurrent users.</li>
+        <li>Built Flutter app with custom notification engine and offline-first sync; reduced app size by <strong>18%</strong>.</li>
+        <li>Implemented secure multi-tenant architecture with role-based access control and <strong>Azure CI/CD</strong> pipeline (zero-downtime deploys).</li>
+        <li>Optimised PostgreSQL queries and message queue handling, cutting <strong>latency by 35%</strong>.</li>
+      </ul>
+    </div>
+    <div class="job">
+      <div class="job-hd">
+        <div>
+          <div class="job-title">Flutter Developer Intern</div>
+          <div class="job-co">Cognisun Infotech · Ahmedabad</div>
+        </div>
+        <div class="job-date">Jan 2025 – May 2025</div>
+      </div>
+      <ul>
+        <li>Spearheaded release of <strong>5+ production apps</strong> on Google Play Store (Cognisun 360, Comfort 360, Rotary District, OM365, Maheshwari App).</li>
+        <li>Engineered AI modules — Face Registration & Attendance + task portal handling <strong>1,000+ sessions</strong>.</li>
+        <li>Strengthened auth with MFA flows, reducing unauthorised-access vulnerabilities by <strong>15%</strong>.</li>
+        <li>Integrated Flask REST APIs with Flutter frontends; wrote unit and widget tests with <strong>85%+ coverage</strong>.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-title">Education</div>
+    <div class="edu-row">
+      <div>
+        <div class="edu-deg">Master of Computer Applications (MCA)</div>
+        <div class="edu-inst">L.J. Institute of Computer Applications, LJIET · Ahmedabad</div>
+        <div class="chips"><span class="chip">Top 3 Rank</span><span class="chip">Distributed Systems</span><span class="chip">AI / ML</span><span class="chip">Cloud</span></div>
+      </div>
+      <div class="edu-dt">2025 – 2027</div>
+    </div>
+    <div class="edu-row" style="margin-top:10px">
+      <div>
+        <div class="edu-deg">Bachelor of Computer Applications (BCA)</div>
+        <div class="edu-inst">L.J. Institute of Computer Applications, LJIET · Ahmedabad</div>
+        <div class="chips"><span class="chip">Data Structures</span><span class="chip">DBMS</span><span class="chip">Mobile Dev</span><span class="chip">OOP</span></div>
+      </div>
+      <div class="edu-dt">2022 – 2025</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-title">Skills</div>
+    <div class="skills-g">
+      <div class="skill-row"><span class="skill-label">Mobile: </span><span class="skill-items">Flutter, Dart, GetX, Riverpod, Hive</span></div>
+      <div class="skill-row"><span class="skill-label">Backend: </span><span class="skill-items">Node.js, Flask, REST, WebSocket</span></div>
+      <div class="skill-row"><span class="skill-label">Database: </span><span class="skill-items">PostgreSQL, Firebase, Redis, SQLite</span></div>
+      <div class="skill-row"><span class="skill-label">Cloud / DevOps: </span><span class="skill-items">Azure, CI/CD, Docker</span></div>
+      <div class="skill-row"><span class="skill-label">Languages: </span><span class="skill-items">Dart, Python, Kotlin, JavaScript, C++</span></div>
+      <div class="skill-row"><span class="skill-label">Tools: </span><span class="skill-items">Git, Figma, Postman, VS Code</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-title">Selected Projects</div>
+    <div class="proj">
+      <div class="proj-hd"><span class="proj-name">DharmStay — Hotel Booking Ecosystem</span><span class="proj-stack">Flutter · Flask · Redis · Azure</span></div>
+      <div class="proj-desc">Multi-role booking platform (user, hotel, admin) with real-time availability, payment integration and Azure CI/CD pipeline.</div>
+    </div>
+    <div class="proj">
+      <div class="proj-hd"><span class="proj-name">JVS Real-Time Messaging Middleware</span><span class="proj-stack">Node.js · WebSocket · PostgreSQL</span></div>
+      <div class="proj-desc">Enterprise messaging system delivering 99.9% reliability to 10,000+ concurrent users with offline-first sync.</div>
+    </div>
+    <div class="proj">
+      <div class="proj-hd"><span class="proj-name">CCTV Object Detector — YOLO</span><span class="proj-stack">Python · YOLO · OpenCV</span></div>
+      <div class="proj-desc">Real-time object detection on CCTV feeds using YOLO model with alert system and live annotation overlay.</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-title">Achievements</div>
+    <ul style="padding-left:14px;color:#334155;font-size:10pt">
+      <li>Top 3 university rank — LJICA MCA programme (2025–2027)</li>
+      <li><strong>#1 / 400</strong> in Coursera Flutter Development batch</li>
+      <li>5+ live production apps on Google Play Store</li>
+      <li>Reduced messaging latency by 35% and app size by 18% in production</li>
+    </ul>
+  </section>
+
+</div>
+</body>
+</html>
